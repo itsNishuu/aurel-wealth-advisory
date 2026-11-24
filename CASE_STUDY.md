@@ -1,32 +1,36 @@
-# Aurel — Wealth Advisory Studio
+# Aurel — case study
 
-**Domain:** Wealth management analytics, investor goals, portfolio construction  
-**Portfolio category:** Independent educational finance project, not a regulated investor advisory engagement  
-**Dataset:** Hypothetical client choices and four asset classes with synthetic return, risk and correlation assumptions.
+**Domain:** wealth management, goal-based planning, portfolio construction
+**Category:** independent educational project, not a regulated advisory engagement
+**Data:** one fictional household; four asset classes with hypothetical return, volatility and correlation assumptions
 
 ## The problem
 
-Wealth professionals need to communicate the trade-off between investment objectives, allocation risk, cash contributions and investment time horizons. A portfolio report should also distinguish a projected future amount from the range of uncertain hypothetical scenarios.
+Clients rarely ask for a volatility number. They ask whether they will reach a goal, how bad a bad outcome could be, and what they should change. A single fixed-return projection answers none of that honestly: it hides the range of outcomes and makes every plan look on track. A useful review shows the spread, puts a number on the trade-offs, and is written so a client can follow it.
 
-## The demonstrator
+## What I built
 
-- Three model portfolios: capital preservation, balanced growth, long-term growth.
-- Client horizon, goal, monthly savings, portfolio balance and fee assumptions.
-- Expected portfolio return and covariance-based volatility from predefined hypothetical market parameters.
-- Deterministic wealth accumulation and reproducible 1,000-path scenario distribution with 10th, 50th and 90th percentiles.
-- Basic risk-tier warning, editable current allocation, rebalancing trades and three manually selected stress scenarios.
-- Exportable explanatory memo documenting assumptions and limitations.
+- A seeded Monte Carlo engine that returns percentile bands for every year, not just an ending number, and can report in today's rupees.
+- A solver for the monthly contribution needed to hit the goal at a chosen confidence level.
+- A cost-of-delay study that uses the same timing assumptions as the simulation.
+- Risk contribution analysis showing that a 45% equity weight can carry close to 90% of portfolio risk.
+- A random-portfolio frontier, suitability comparison, stress scenarios and a track-record checker (Sharpe, Sortino, drawdown, tracking error, information ratio).
+- Drift-band rebalancing with turnover and cost, so the tool recommends doing nothing when doing nothing is right.
+- A client letter generated from the live model.
 
-## The reviewer should examine
+## What to look at
 
-1. Compare conservative versus growth portfolios with the same investing horizon.
-2. Set risk tolerance to Low and choose Long-term growth; inspect the warning.
-3. Change starting allocation and review the recommended buy/sell *worksheet*, which is not an executed recommendation.
-4. Review the p10–p90 distribution and simulated goal attainment; confirm seed reproducibility in `tests/engines.test.mjs`.
-5. Read the caveats on simulated outcomes, tax, risk suitability and portfolio rebalancing.
+1. On **Plan**, compare the fan chart's median with the fixed-return figure in the text. The median sits below it, as it should when returns are volatile.
+2. Tick **Show values in today's rupees** and watch the goal probability fall.
+3. Change the confidence selector from 80% to 90% and note how much the required contribution rises.
+4. On **Allocation**, choose Long-term growth with a Low risk tolerance and read the suitability note.
+5. On **Rebalance**, set holdings close to target and confirm that no trades are proposed inside the band.
+6. Run `npm test` and read `tests/engine.test.mjs`.
 
-## What it proves
+## What it shows
 
-An ability to translate investment-planning concepts into a numerical, explainable and testable analytical workflow. Relevant to Wealth Management Associate, Investment Analyst and Portfolio Analytics Associate roles.
+The ability to turn planning concepts into a model that is numerical, explainable and tested, and to communicate its output to a non-specialist. Relevant to wealth management, investment analyst and portfolio analytics roles.
 
-**Does not prove:** regulated financial advice, risk-adjusted investment performance, returns from historical backtesting, verified investment suitability, client acquisition, portfolio-management authority or a track record.
+## What it does not show
+
+Regulated advice, a suitability determination, historical backtesting, tax treatment, real client work or investment performance. Asset assumptions are illustrative and the return model is deliberately simple (annual steps, fixed correlations, no fat tails).
