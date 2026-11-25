@@ -4,120 +4,301 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Start here: Aurel explained simply</title>
-  <meta name="description" content="A plain-English guide to Aurel, a goal-based wealth planning case study, for readers with no finance background.">
+  <meta name="description" content="A plain-English briefing on Aurel, a goal-based wealth planning case study: what it does, a guided tour, an exploration checklist, how it is built and a glossary.">
+  <meta name="theme-color" content="#0d2730">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/guide.css">
+  <script type="module" src="src/briefing.js"></script>
 </head>
-<body class="g-body">
-  <header class="g-top">
-    <a class="g-brand" href="index.html">Aurel<small>Start here</small></a>
-    <a class="g-open" href="index.html">Open the app →</a>
+<body class="b-body">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="b-top">
+    <a class="b-brand" href="index.html">Aurel<small>Start here</small></a>
+    <nav class="b-topnav" aria-label="Guide highlights">
+      <a href="#tour">Tour</a><a href="#checklist">Checklist</a><a href="#build">Under the hood</a><a href="#faq">Questions</a>
+    </nav>
+    <a class="b-open" href="index.html">Open the app <span aria-hidden="true">→</span></a>
   </header>
-  <main class="g-wrap">
-    <section class="g-hero" aria-labelledby="g-title">
-      <p class="g-kicker">Start here · a five-minute guide for anyone</p>
-      <h1 id="g-title">What is Aurel?</h1>
-      <p class="g-lead">Aurel is a planning tool a wealth adviser would use with a family. It answers one question honestly: if this family keeps investing the way it plans to, how likely is it to reach its goal, and what should change if the odds are poor?</p>
-      <dl class="g-facts">
-        <div><dt>Who uses tools like this</dt><dd>Wealth managers, financial planners and private-bank analysts</dd></div>
-        <div><dt>The data</dt><dd>One fictional household and made-up market assumptions</dd></div>
-        <div><dt>Time to explore</dt><dd>About five minutes</dd></div>
-      </dl>
-      <nav aria-label="On this page">
-        <ul class="g-toc">
-          <li><a href="#problem">The problem</a></li>
-          <li><a href="#story">The story</a></li>
-          <li><a href="#tour">Guided tour</a></li>
-          <li><a href="#words">Key words</a></li>
-          <li><a href="#scope">What it shows</a></li>
-        </ul>
+
+  <main id="main">
+    <section class="b-hero" aria-labelledby="g-title">
+      <div class="b-motif"><svg viewBox="0 0 640 360" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <path d="M0 300 C180 280 360 210 640 40 L640 250 C380 280 200 300 0 304Z" fill="currentColor" opacity=".10"/>
+  <path d="M0 302 C190 286 370 236 640 110 L640 200 C390 262 210 296 0 303Z" fill="currentColor" opacity=".16"/>
+  <path d="M0 302 C200 290 380 250 640 150" fill="none" stroke="currentColor" stroke-width="2" opacity=".55"/>
+  <line x1="0" y1="168" x2="640" y2="168" stroke="var(--gold-2)" stroke-width="1.5" stroke-dasharray="6 6" opacity=".7"/>
+</svg></div>
+      <div class="b-hero-in">
+        <div class="b-hero-copy">
+          <p class="b-kicker">Start here · The Aurel briefing</p>
+          <h1 id="g-title">What is Aurel?</h1>
+          <p class="b-lead">Aurel is a planning tool a wealth adviser would use with a family. It answers one question honestly: if this family keeps investing the way it plans to, how likely is it to reach its goal, and what should change if the odds are poor?</p>
+          <div class="b-hero-cta">
+            <a class="b-btn" href="index.html">Open Aurel</a>
+            <a class="b-btn b-ghost" href="#tour">Take the five-minute tour</a>
+          </div>
+        </div>
+        <aside class="b-live" data-live data-state="loading" aria-labelledby="live-title">
+          <p class="b-live-k" id="live-title"><span class="b-pulse" aria-hidden="true"></span>Live from the model</p>
+          <div class="b-live-figs" aria-live="polite">
+            <div class="b-fig"><span class="b-sk"></span><span class="b-sk b-sk-s"></span></div>
+            <div class="b-fig"><span class="b-sk"></span><span class="b-sk b-sk-s"></span></div>
+            <div class="b-fig"><span class="b-sk"></span><span class="b-sk b-sk-s"></span></div>
+            <div class="b-fig"><span class="b-sk"></span><span class="b-sk b-sk-s"></span></div>
+          </div>
+          <p class="b-live-note">Computed in your browser by the same engine the app runs, using the app&#x27;s default client brief.</p>
+          <noscript><p class="b-live-note">Turn on JavaScript to see live figures, or <a href="index.html">open the app</a>.</p></noscript>
+        </aside>
+      </div>
+      <dl class="b-facts"><div><dt>Who uses tools like this</dt><dd>Wealth managers, financial planners and private-bank analysts</dd></div><div><dt>The data</dt><dd>One fictional household and illustrative market assumptions</dd></div><div><dt>Time to explore</dt><dd>About five minutes</dd></div><div><dt>Built with</dt><dd>Plain JavaScript and SVG. No dependencies, no tracking</dd></div></dl>
+    </section>
+
+    <div class="b-layout">
+      <nav class="b-side" aria-label="On this page">
+        <p class="b-side-k">On this page</p>
+        <ol><li><a href="#problem"><span>01</span>The problem</a></li><li><a href="#story"><span>02</span>The story</a></li><li><a href="#tour"><span>03</span>Guided tour</a></li><li><a href="#checklist"><span>04</span>Checklist</a></li><li><a href="#build"><span>05</span>Under the hood</a></li><li><a href="#words"><span>06</span>Key words</a></li><li><a href="#faq"><span>07</span>Questions</a></li><li><a href="#scope"><span>08</span>What it shows</a></li></ol>
+        <div class="b-side-meter" aria-hidden="true"><span>Checklist</span><b><span data-done>0</span>/10</b><i class="b-bar"><i data-bar></i></i></div>
       </nav>
-    </section>
 
-    <section class="g-sec" id="problem" aria-labelledby="h-problem">
-      <h2 id="h-problem">The problem it solves</h2>
-      <p>Most investment projections say something like "invest ₹30,000 a month at 12% a year and you will have ₹1 crore". Markets do not move in a straight line. Some years are great, some are terrible, and the order in which they come matters. A single number hides all of that, so every plan looks on track.</p>
-      <p>Aurel instead runs <strong>1,000 possible futures</strong>, like replaying the next twelve years a thousand times with different market luck, and shows the spread of results. That lets an adviser say something honest, such as "in 8 out of 10 futures you reach the goal", and then work out what would raise those odds.</p>
-    </section>
+      <div class="b-content">
+        <section class="b-sec" id="problem" aria-labelledby="h-problem">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">01</span><h2 id="h-problem">The problem it solves</h2></header>
+          <p>Most investment projections say something like &ldquo;invest ₹30,000 a month at 12% a year and you will have ₹1 crore&rdquo;. Markets do not move in a straight line. Some years are great, some are terrible, and the order in which they come matters. A single number hides all of that, so every plan looks on track.</p><p>Aurel instead runs <strong>1,000 possible futures</strong>, like replaying the next twelve years a thousand times with different market luck, and shows the spread of results. That lets an adviser say something honest, such as &ldquo;in 8 out of 10 futures you reach the goal&rdquo;, and then work out what would raise those odds.</p>
+        </section>
 
-    <section class="g-sec" id="story" aria-labelledby="h-story">
-      <h2 id="h-story">The story inside the app</h2>
-      <div class="g-story"><p>The Rao household (fictional) has ₹15 lakh invested, saves ₹30,000 a month (rising 5% each year) and wants ₹1 crore in twelve years. They describe their appetite for risk as medium. Every number in the app can be changed in the Client brief panel on the left.</p></div>
-    </section>
+        <section class="b-sec" id="story" aria-labelledby="h-story">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">02</span><h2 id="h-story">The story inside the app</h2></header>
+          <blockquote class="b-story reveal"><p>The Rao household (fictional) has ₹15 lakh invested, saves ₹30,000 a month (rising 5% each year) and wants ₹1 crore in twelve years. They describe their appetite for risk as medium. Every number in the app can be changed in the Client brief panel on the left.</p></blockquote>
+        </section>
 
-    <section class="g-sec" id="tour" aria-labelledby="h-tour">
-      <h2 id="h-tour">A guided tour, one tab at a time</h2>
-      <p>Each step below matches a tab along the top of the app. Read the step, open the tab, then try the suggested change.</p>
-      <ol class="g-tour">
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">1</span>
-        <h3>Plan<span>Will the family reach its goal?</span></h3>
-        <p>The fan-shaped chart shows the range of outcomes. The darker band holds the middle half of all futures, the lighter band holds 8 in 10, the line is the typical (median) path and the gold line is the goal. Below it: how much the family must save each month to reach the goal with 70%, 80% or 90% confidence, how big the gap is when they miss, and what waiting a few years to start would cost.</p>
-        <p class="g-try"><strong>Try this:</strong> Tick “Show values in today&#x27;s rupees”. The chance of success falls, because ₹1 crore in twelve years will buy much less than ₹1 crore today.</p>
-        <a class="g-go" href="index.html#plan">Open Plan →</a>
-      </li>
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">2</span>
-        <h3>Allocation<span>Where is the money, and where is the risk?</span></h3>
-        <p>How the savings are split across four types of investment. The key insight: where the money sits is not where the risk sits. Shares can be under half of the money yet cause almost all of the ups and downs.</p>
-        <p class="g-try"><strong>Try this:</strong> Choose “Long-term growth” while the risk tolerance is Low, and read the suitability warning.</p>
-        <a class="g-go" href="index.html#allocation">Open Allocation →</a>
-      </li>
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">3</span>
-        <h3>Risk<span>What would a bad year do?</span></h3>
-        <p>Hand-built shock scenarios, such as a market crash or a jump in interest rates, applied to today&#x27;s portfolio. There is also a checker that compares any portfolio&#x27;s monthly returns with a benchmark.</p>
-        <p class="g-try"><strong>Try this:</strong> Look at the worst scenario and ask: could this family stay invested through that?</p>
-        <a class="g-go" href="index.html#risk">Open Risk →</a>
-      </li>
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">4</span>
-        <h3>Rebalance<span>Is it time to adjust?</span></h3>
-        <p>Over time some investments grow faster than others and the mix drifts away from the plan. Aurel suggests trades only when something drifts too far, to avoid needless costs.</p>
-        <p class="g-try"><strong>Try this:</strong> Set the holdings close to the target. Aurel recommends doing nothing, which is often the right advice.</p>
-        <a class="g-go" href="index.html#rebalance">Open Rebalance →</a>
-      </li>
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">5</span>
-        <h3>Client report<span>What does the family read?</span></h3>
-        <p>A plain-English letter for the family, written from the live numbers and ready to print or save as PDF.</p>
-        <p class="g-try"><strong>Try this:</strong> Change the goal in the Client brief, then reopen the letter. It updates by itself.</p>
-        <a class="g-go" href="index.html#report">Open Client report →</a>
-      </li>
-      </ol>
-    </section>
+        <section class="b-sec" id="tour" aria-labelledby="h-tour">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">03</span><h2 id="h-tour">A guided tour, one tab at a time</h2></header>
+          <p>Each step below matches a tab along the top of the app. Read the step, open the tab, then try the suggested change.</p>
+          <ol class="b-tour">
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">01</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 1 of 5</p>
+            <h3>Plan<span>Will the family reach its goal?</span></h3>
+            <p>The fan-shaped chart shows the range of outcomes. The darker band holds the middle half of all futures, the lighter band holds 8 in 10, the line is the typical (median) path and the gold line is the goal. Below it: how much the family must save each month to reach the goal with 70%, 80% or 90% confidence, how big the gap is when they miss, and what waiting a few years to start would cost.</p>
+            <p class="b-try"><strong>Try this</strong>Tick &ldquo;Show values in today&#x27;s rupees&rdquo;. The chance of success falls, because ₹1 crore in twelve years will buy much less than ₹1 crore today.</p>
+            <a class="b-go" href="index.html#plan">Open Plan <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">02</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 2 of 5</p>
+            <h3>Allocation<span>Where is the money, and where is the risk?</span></h3>
+            <p>How the savings are split across four types of investment. The key insight: where the money sits is not where the risk sits. Shares can be under half of the money yet cause almost all of the ups and downs.</p>
+            <p class="b-try"><strong>Try this</strong>Choose &ldquo;Long-term growth&rdquo; while the risk tolerance is Low, and read the suitability warning.</p>
+            <a class="b-go" href="index.html#allocation">Open Allocation <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">03</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 3 of 5</p>
+            <h3>Risk<span>What would a bad year do?</span></h3>
+            <p>Hand-built shock scenarios, such as a market crash or a jump in interest rates, applied to today&#x27;s portfolio. There is also a checker that compares any portfolio&#x27;s monthly returns with a benchmark.</p>
+            <p class="b-try"><strong>Try this</strong>Look at the worst scenario and ask: could this family stay invested through that?</p>
+            <a class="b-go" href="index.html#risk">Open Risk <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">04</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 4 of 5</p>
+            <h3>Rebalance<span>Is it time to adjust?</span></h3>
+            <p>Over time some investments grow faster than others and the mix drifts away from the plan. Aurel suggests trades only when something drifts too far, to avoid needless costs.</p>
+            <p class="b-try"><strong>Try this</strong>Set the holdings close to the target. Aurel recommends doing nothing, which is often the right advice.</p>
+            <a class="b-go" href="index.html#rebalance">Open Rebalance <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">05</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 5 of 5</p>
+            <h3>Client report<span>What does the family read?</span></h3>
+            <p>A plain-English letter for the family, written from the live numbers and ready to print or save as PDF.</p>
+            <p class="b-try"><strong>Try this</strong>Change the goal in the Client brief, then reopen the letter. It updates by itself.</p>
+            <a class="b-go" href="index.html#report">Open Client report <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+          </ol>
+        </section>
 
-    <section class="g-sec" id="words" aria-labelledby="h-words">
-      <h2 id="h-words">Key words, in everyday language</h2>
-      <dl class="g-terms">
-        <div><dt>Monte Carlo simulation</dt><dd>Running a calculation many times with random but realistic inputs to see the range of possible results, not just one.</dd></div>
-        <div><dt>Percentile</dt><dd>A ranking point. The 10th percentile is a poor outcome (only 1 in 10 futures do worse); the 90th is a strong one.</dd></div>
-        <div><dt>Median</dt><dd>The middle result: half of the futures end higher, half lower.</dd></div>
-        <div><dt>Confidence level</dt><dd>How sure you want to be. Saving for 90% confidence means reaching the goal in 9 out of 10 simulated futures.</dd></div>
-        <div><dt>Today&#x27;s rupees (real terms)</dt><dd>Future amounts adjusted for inflation, so they can be compared with what money buys now.</dd></div>
-        <div><dt>Asset allocation</dt><dd>How money is divided between types of investment, such as shares, bonds, gold and cash.</dd></div>
-        <div><dt>Volatility</dt><dd>How much an investment&#x27;s value swings up and down. Higher volatility means a bumpier ride.</dd></div>
-        <div><dt>Risk contribution</dt><dd>How much of the portfolio&#x27;s total swings come from each investment.</dd></div>
-        <div><dt>Rebalancing</dt><dd>Buying and selling to bring the mix back to the plan after markets have moved it.</dd></div>
-        <div><dt>Drawdown</dt><dd>The fall from a previous high point to a low, for example −20%.</dd></div>
-        <div><dt>Sharpe ratio</dt><dd>Return earned per unit of risk taken. Higher is better.</dd></div>
-        <div><dt>Benchmark</dt><dd>A standard to compare against, such as a market index.</dd></div>
-      </dl>
-    </section>
+        <section class="b-sec" id="checklist" aria-labelledby="h-checklist">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">04</span><h2 id="h-checklist">Your exploration checklist</h2></header>
+          <p>Everything worth seeing in Aurel, in the order you will meet it. Tick each item as you go; progress is saved in this browser only and never leaves your device.</p>
+          <div class="b-meter">
+            <p><strong><span data-done>0</span> of 10</strong> explored</p>
+            <i class="b-bar"><i data-bar></i></i>
+            <button type="button" class="b-reset" data-reset>Reset</button>
+          </div>
+          <p class="b-complete" data-complete hidden>You have seen everything Aurel does. The case study explains the decisions behind it.</p>
+          <div class="b-table-wrap reveal">
+          <table class="b-table b-check">
+            <caption>Exploration checklist for Aurel</caption>
+            <thead><tr><th scope="col"><span class="b-sr">Done</span></th><th scope="col">Step</th><th scope="col">Where</th><th scope="col">You will learn</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-odds" data-check="odds"></td>
+              <th scope="row"><label for="c-odds">Read the headline odds</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#plan">Plan</a></td>
+              <td data-label="You will learn">How many of 1,000 simulated futures reach the goal, and how that differs from a single straight-line projection.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-real" data-check="real"></td>
+              <th scope="row"><label for="c-real">Switch to today&#x27;s rupees</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#plan">Plan</a></td>
+              <td data-label="You will learn">Why inflation lowers the odds even though nothing else changed.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-confidence" data-check="confidence"></td>
+              <th scope="row"><label for="c-confidence">Find the saving needed for 90% confidence</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#plan">Plan</a></td>
+              <td data-label="You will learn">The extra monthly amount that buys more certainty, solved exactly rather than guessed.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-riskshare" data-check="riskshare"></td>
+              <th scope="row"><label for="c-riskshare">Compare share of money with share of risk</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#allocation">Allocation</a></td>
+              <td data-label="You will learn">Why shares can be under half the money but drive most of the swings.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-suitability" data-check="suitability"></td>
+              <th scope="row"><label for="c-suitability">Trigger a suitability warning</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#allocation">Allocation</a></td>
+              <td data-label="You will learn">How a portfolio is checked against the client&#x27;s stated tolerance and horizon.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-stress" data-check="stress"></td>
+              <th scope="row"><label for="c-stress">Find the worst stress scenario</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#risk">Risk</a></td>
+              <td data-label="You will learn">What a crash or rate shock does to today&#x27;s portfolio, in rupees.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-track" data-check="track"></td>
+              <th scope="row"><label for="c-track">Run the track-record checker</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#risk">Risk</a></td>
+              <td data-label="You will learn">Sharpe, Sortino, drawdown and tracking error against a benchmark.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-nothing" data-check="nothing"></td>
+              <th scope="row"><label for="c-nothing">Get a &ldquo;do nothing&rdquo; rebalance</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#rebalance">Rebalance</a></td>
+              <td data-label="You will learn">Why trading only outside a tolerance band saves costs.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-letter" data-check="letter"></td>
+              <th scope="row"><label for="c-letter">Change the goal and reread the letter</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#report">Client report</a></td>
+              <td data-label="You will learn">How the client letter is written from the live numbers.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-print" data-check="print"></td>
+              <th scope="row"><label for="c-print">Print or download the review</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#report">Client report</a></td>
+              <td data-label="You will learn">The finished deliverable a client would take home.</td>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
 
-    <section class="g-sec" id="scope" aria-labelledby="h-scope">
-      <h2 id="h-scope">What this project shows, and what it does not</h2>
-      <div class="g-two">
-        <div class="g-card"><h3>What it shows</h3><p>Turning planning ideas into a model that is numerical, explainable and tested, then explaining the result to someone who is not a specialist. Relevant to wealth management, investment analyst and portfolio analytics roles.</p></div>
-        <div class="g-card"><h3>What it is not</h3><p>It is not investment advice and not real client work. The family is fictional, the market assumptions are illustrative, and there is no historical backtest or tax treatment.</p></div>
+        <section class="b-sec" id="build" aria-labelledby="h-build">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">05</span><h2 id="h-build">Under the hood</h2></header>
+          <p>Aurel is a static site: every calculation runs in your browser from one file of pure, tested functions. Nothing is sent to a server, and there is nothing to install.</p>
+          <ul class="b-stats reveal">
+            <li><strong data-tests>21</strong><span>automated tests, run before every deployment</span></li>
+            <li><strong>5</strong><span>working views, each linked to the same engine</span></li>
+            <li><strong>0</strong><span>runtime dependencies or third-party requests</span></li>
+            <li><strong>7/9</strong><span>capabilities in scope, the rest stated openly</span></li>
+          </ul>
+          <ul class="b-chips" aria-label="Technology"><li>Vanilla JavaScript (ES modules)</li><li>Hand-built SVG charts</li><li>node:test</li><li>Self-hosted fonts</li><li>Vercel static hosting</li></ul>
+          <div class="b-table-wrap reveal">
+          <table class="b-table b-caps">
+            <caption>Capability checklist for Aurel</caption>
+            <thead><tr><th scope="col">Capability</th><th scope="col">Status</th><th scope="col">Evidence</th></tr></thead>
+            <tbody>
+            <tr>
+              <th scope="row">1,000-path seeded Monte Carlo simulation with percentile fan</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">src/engine.js &middot; reproducibility test</td>
+            </tr>
+            <tr>
+              <th scope="row">Contribution solver for 70 / 80 / 90% confidence (bisection)</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">solver reaches the target, ₹1,000 less does not</td>
+            </tr>
+            <tr>
+              <th scope="row">Covariance-based risk contributions summing to 100%</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">risk-contribution test</td>
+            </tr>
+            <tr>
+              <th scope="row">Random-portfolio efficient frontier (700 portfolios)</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">frontier validity test</td>
+            </tr>
+            <tr>
+              <th scope="row">Stress scenarios and realised-risk statistics</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">stress and statistics tests</td>
+            </tr>
+            <tr>
+              <th scope="row">Drift-band rebalancing with dealing costs</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">trades net to zero and respect the band</td>
+            </tr>
+            <tr>
+              <th scope="row">Plain-English client letter, printable</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">Client report tab</td>
+            </tr>
+            <tr>
+              <th scope="row">Historical backtest on real market data</th>
+              <td data-label="Status"><span class="b-pill no">— Not included</span></td>
+              <td data-label="Evidence">Assumptions are illustrative</td>
+            </tr>
+            <tr>
+              <th scope="row">Tax treatment or regulated suitability advice</th>
+              <td data-label="Status"><span class="b-pill no">— Not included</span></td>
+              <td data-label="Evidence">Out of scope by design</td>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <section class="b-sec" id="words" aria-labelledby="h-words">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">06</span><h2 id="h-words">Key words, in everyday language</h2></header>
+          <label class="b-filter"><span class="b-sr">Filter key words</span><input type="search" data-filter placeholder="Filter 12 terms…" autocomplete="off"></label>
+          <dl class="b-terms"><div><dt>Monte Carlo simulation</dt><dd>Running a calculation many times with random but realistic inputs to see the range of possible results, not just one.</dd></div><div><dt>Percentile</dt><dd>A ranking point. The 10th percentile is a poor outcome (only 1 in 10 futures do worse); the 90th is a strong one.</dd></div><div><dt>Median</dt><dd>The middle result: half of the futures end higher, half lower.</dd></div><div><dt>Confidence level</dt><dd>How sure you want to be. Saving for 90% confidence means reaching the goal in 9 out of 10 simulated futures.</dd></div><div><dt>Today&#x27;s rupees (real terms)</dt><dd>Future amounts adjusted for inflation, so they can be compared with what money buys now.</dd></div><div><dt>Asset allocation</dt><dd>How money is divided between types of investment, such as shares, bonds, gold and cash.</dd></div><div><dt>Volatility</dt><dd>How much an investment&#x27;s value swings up and down. Higher volatility means a bumpier ride.</dd></div><div><dt>Risk contribution</dt><dd>How much of the portfolio&#x27;s total swings come from each investment.</dd></div><div><dt>Rebalancing</dt><dd>Buying and selling to bring the mix back to the plan after markets have moved it.</dd></div><div><dt>Drawdown</dt><dd>The fall from a previous high point to a low, for example −20%.</dd></div><div><dt>Sharpe ratio</dt><dd>Return earned per unit of risk taken. Higher is better.</dd></div><div><dt>Benchmark</dt><dd>A standard to compare against, such as a market index.</dd></div></dl>
+          <p class="b-empty" data-empty hidden>No key words match <q></q>. Try a shorter word.</p>
+        </section>
+
+        <section class="b-sec" id="faq" aria-labelledby="h-faq">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">07</span><h2 id="h-faq">Questions people ask</h2></header>
+          <div class="b-faq"><details class="b-q"><summary>Is any of this real client data?</summary><p>No. The Rao household is fictional and every market assumption is illustrative. Nothing here is investment advice.</p></details><details class="b-q"><summary>Can I change the numbers?</summary><p>Yes. Every input in the Client brief panel can be edited, and every chart, figure and the client letter recalculate immediately.</p></details><details class="b-q"><summary>Why does the same input always give the same answer?</summary><p>The simulation uses a seeded random number generator, so results are reproducible. That is also what makes the contribution solver reliable.</p></details><details class="b-q"><summary>Does it work on a phone?</summary><p>Yes. The layout adapts to small screens, and the client letter can be printed or saved as a PDF from any device.</p></details><details class="b-q"><summary>How do I know the maths is right?</summary><p>The calculations live in one file of pure functions with an automated test suite that runs before every deployment. If a test fails, the site does not publish.</p></details><details class="b-q"><summary>Who is it for?</summary><p>Anyone curious about how wealth planning works, and recruiters or hiring managers looking at wealth management, investment analyst and portfolio analytics work.</p></details></div>
+        </section>
+
+        <section class="b-sec" id="scope" aria-labelledby="h-scope">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">08</span><h2 id="h-scope">What this project shows, and what it does not</h2></header>
+          <div class="b-two">
+            <div class="b-card"><h3>What it shows</h3><p>Turning planning ideas into a model that is numerical, explainable and tested, then explaining the result to someone who is not a specialist. Relevant to wealth management, investment analyst and portfolio analytics roles.</p></div>
+            <div class="b-card b-card-muted"><h3>What it is not</h3><p>It is not investment advice and not real client work. The family is fictional, the market assumptions are illustrative, and there is no historical backtest or tax treatment.</p></div>
+          </div>
+          <div class="b-cta">
+            <p>Ready to explore?</p>
+            <div><a href="index.html">Open Aurel</a><a class="b-ghost" href="https://github.com/itsNishuu/aurel-wealth-advisory/blob/main/CASE_STUDY.md">Read the case study</a></div>
+          </div>
+        </section>
       </div>
-      <div class="g-cta">
-        <p>Ready to explore?</p>
-        <div><a href="index.html">Open Aurel</a><a class="g-ghost" href="https://github.com/itsNishuu/aurel-wealth-advisory/blob/main/CASE_STUDY.md">Read the case study</a></div>
-      </div>
-    </section>
+    </div>
   </main>
-  <footer class="g-foot">
+  <footer class="b-foot">
     <p>Aurel is an independent case study by Nishant Khanke. All people, companies and figures are fictional. Nothing here is financial advice.</p>
   </footer>
 </body>
