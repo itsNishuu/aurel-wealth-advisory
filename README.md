@@ -2,7 +2,7 @@
 
 **Live demo:** https://aurel-wealth-advisory.vercel.app
 
-**New to the subject?** Start with the [plain-English guide](https://aurel-wealth-advisory.vercel.app/guide.html) ([source](guide.html)): what Aurel does, a tab-by-tab tour and a glossary, written for readers with no finance background.
+**New to the subject?** Start with the [plain-English guide](https://aurel-wealth-advisory.vercel.app/guide.html) ([source](guide.html)): live figures from the model, a tab-by-tab tour, an exploration checklist, a capability checklist, common questions and a glossary, written for readers with no finance background.
 
 A goal-based financial planning workbench for a fictional Indian household. It answers the questions a wealth client actually asks — *will we get there, what if markets go badly, how much more should we save, and is this portfolio right for us?* — and turns the answers into a printable client review.
 
